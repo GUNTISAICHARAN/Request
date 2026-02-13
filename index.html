@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valentine 💖</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  height:100vh;
+  background:linear-gradient(120deg,#ff9a9e,#fad0c4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* CARD */
+.container{
+  width:75%;
+  height:75%;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(15px);
+  border-radius:80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  box-shadow:0 20px 70px rgba(0,0,0,0.3);
+  transition:0.6s;
+}
+
+h1{
+  font-size:52px;
+  color:#ff2e63;
+  margin-bottom:50px;
+  text-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* BEAUTIFUL BUTTON STYLE */
+button{
+  padding:18px 55px;
+  font-size:22px;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  margin:20px;
+  font-weight:bold;
+  letter-spacing:1px;
+  position:relative;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+/* glowing border effect */
+button::before{
+  content:"";
+  position:absolute;
+  width:0%;
+  height:100%;
+  left:0;
+  top:0;
+  background:rgba(255,255,255,0.3);
+  transition:0.4s;
+}
+button:hover::before{ width:100%; }
+
+/* YES BUTTON */
+#yesBtn{
+  background:linear-gradient(45deg,#22c55e,#16a34a);
+  color:white;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  animation:pulse 1.8s infinite;
+}
+#yesBtn:hover{ transform:scale(1.15); }
+
+/* NO BUTTON */
+#noBtn{
+  background:linear-gradient(45deg,#ff4d6d,#ff758f);
+  color:white;
+  position:absolute;
+  left:55%;
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+#noBtn:hover{ transform:scale(1.15); }
+
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(34,197,94,0.7); }
+  70%{ box-shadow:0 0 0 25px rgba(34,197,94,0); }
+  100%{ box-shadow:0 0 0 0 rgba(34,197,94,0); }
+}
+
+/* HEART RAIN */
+.heart{
+  position:fixed;
+  top:-10px;
+  color:#ff2e63;
+  font-size:22px;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+
+/* IMAGE AFTER YES */
+#loveImg{
+  width:300px;
+  border-radius:25px;
+  margin-top:30px;
+  display:none;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  animation:zoom 1s ease;
+}
+
+@keyframes zoom{
+  from{ transform:scale(0); opacity:0; }
+  to{ transform:scale(1); opacity:1; }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card">
+  <h1 id="title">Will you be my Valentine? 💖</h1>
+
+  <button id="yesBtn" onclick="yesClick()">YES 💚</button>
+  <button id="noBtn" onmouseover="moveButton()">NO 😁</button>
+
+  <!-- Romantic Image -->
+  <img id="loveImg"
+  src="https://i.imgur.com/8Km9tLL.jpg">
+</div>
+
+<script>
+
+/* YES CLICK */
+function yesClick(){
+  document.getElementById("title").innerHTML="Yayyyy 💖 She said YES 😍";
+  document.getElementById("yesBtn").style.display="none";
+  document.getElementById("noBtn").style.display="none";
+  document.getElementById("loveImg").style.display="block";
+}
+
+/* RUNNING NO BUTTON 😆 */
+function moveButton(){
+  var btn=document.getElementById("noBtn");
+  var x=Math.random()*window.innerWidth*0.6;
+  var y=Math.random()*window.innerHeight*0.6;
+  btn.style.left=x+"px";
+  btn.style.top=y+"px";
+}
+
+/* HEART RAIN */
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(Math.random()*3+3)+"s";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),5000);
+}
+setInterval(createHeart,200);
+
+</script>
+</body>
+</html>
