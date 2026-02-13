@@ -1,15 +1,13 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>Valentine 💖</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
 
 body{
   height:100vh;
@@ -22,78 +20,47 @@ body{
 
 /* CARD */
 .container{
-  width:75%;
-  height:75%;
-  background:rgba(255,255,255,0.25);
-  backdrop-filter:blur(15px);
-  border-radius:80px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  width:55%;
+  max-width:650px;
+  background:white;
+  border-radius:30px;
+  padding:30px 35px;
+  text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);
   position:relative;
-  box-shadow:0 20px 70px rgba(0,0,0,0.3);
-  transition:0.6s;
 }
 
+/* HEADING */
 h1{
-  font-size:52px;
+  font-size:32px;
   color:#ff2e63;
-  margin-bottom:50px;
-  text-shadow:0 5px 15px rgba(0,0,0,0.2);
+  font-family:'Dancing Script',cursive;
+  margin-bottom:10px;
 }
 
-/* BEAUTIFUL BUTTON STYLE */
+/* BUTTONS */
 button{
-  padding:18px 55px;
-  font-size:22px;
+  padding:8px 18px;
+  font-size:18px;
   border:none;
-  border-radius:50px;
+  border-radius:10px;
   cursor:pointer;
-  margin:20px;
-  font-weight:bold;
-  letter-spacing:1px;
-  position:relative;
-  overflow:hidden;
-  transition:0.4s;
+  margin:10px;
+  font-family:Poppins;
 }
 
-/* glowing border effect */
-button::before{
-  content:"";
-  position:absolute;
-  width:0%;
-  height:100%;
-  left:0;
-  top:0;
-  background:rgba(255,255,255,0.3);
-  transition:0.4s;
-}
-button:hover::before{ width:100%; }
+#yesBtn{ background:#22c55e; color:white; }
+#noBtn{ background:#ff4d6d; color:white; position:absolute; }
 
-/* YES BUTTON */
-#yesBtn{
-  background:linear-gradient(45deg,#22c55e,#16a34a);
-  color:white;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-  animation:pulse 1.8s infinite;
-}
-#yesBtn:hover{ transform:scale(1.15); }
-
-/* NO BUTTON */
-#noBtn{
-  background:linear-gradient(45deg,#ff4d6d,#ff758f);
-  color:white;
-  position:absolute;
-  left:55%;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-#noBtn:hover{ transform:scale(1.15); }
-
-@keyframes pulse{
-  0%{ box-shadow:0 0 0 0 rgba(34,197,94,0.7); }
-  70%{ box-shadow:0 0 0 25px rgba(34,197,94,0); }
-  100%{ box-shadow:0 0 0 0 rgba(34,197,94,0); }
+/* MESSAGE TEXT */
+#loveText{
+  display:none;
+  /*font-family:'Playfair Display', Cursive;*/
+  font-family: cursive;
+  font-size:15px;
+  color:#5a2a2a;
+  line-height:1.6;
+  margin-top:8px;
 }
 
 /* HEART RAIN */
@@ -101,80 +68,62 @@ button:hover::before{ width:100%; }
   position:fixed;
   top:-10px;
   color:#ff2e63;
-  font-size:22px;
+  font-size:18px;
   animation:fall linear forwards;
 }
-
 @keyframes fall{
-  to{
-    transform:translateY(110vh);
-    opacity:0;
-  }
+  to{ transform:translateY(110vh); opacity:0; }
 }
-
-/* IMAGE AFTER YES */
-#loveImg{
-  width:300px;
-  border-radius:25px;
-  margin-top:30px;
-  display:none;
-  box-shadow:0 10px 40px rgba(0,0,0,0.4);
-  animation:zoom 1s ease;
-}
-
-@keyframes zoom{
-  from{ transform:scale(0); opacity:0; }
-  to{ transform:scale(1); opacity:1; }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="container" id="card">
+<div class="container">
   <h1 id="title">Will you be my Valentine? 💖</h1>
 
   <button id="yesBtn" onclick="yesClick()">YES 💚</button>
   <button id="noBtn" onmouseover="moveButton()">NO 😁</button>
 
-  <!-- Romantic Image -->
-  <img id="loveImg"
-  src="https://i.imgur.com/8Km9tLL.jpg">
+  <p id="loveText">
+Hi Moina, how are you? <br><br>
+
+I just want to say, my feelings for you will never change. That day when I spoke like that and asked you to talk to me, it was because I had just got my job and I wanted to surprise you. that’s why I begged you to talk with me. I was desperate to share that happiness with you, but things felt weird and everything went wrong.<br><br>
+
+The very next day I had my HR interview. If I had attended the HR interview, I would have fixed the package and stayed in Hyderabad. Anyway, I got the job now and I have to move to Chennai. It’s not the package I expected, but it’s okay. As I promised, after getting the job I’m talking to you.<br><br>
+
+From now, maybe I won’t show my feelings openly. they will stay inside me. But I just want to ask you one thing <br><br>
+
+<b>Will you be my Valentine as my best friend? 💖</b>
+  </p>
+
 </div>
 
 <script>
-
-/* YES CLICK */
 function yesClick(){
-  document.getElementById("title").innerHTML="Yayyyy 💖 She said YES 😍";
+  document.getElementById("title").innerHTML="Heyyy she said Yes....🥳🕺";
   document.getElementById("yesBtn").style.display="none";
   document.getElementById("noBtn").style.display="none";
-  document.getElementById("loveImg").style.display="block";
+  document.getElementById("loveText").style.display="block";
 }
 
-/* RUNNING NO BUTTON 😆 */
 function moveButton(){
   var btn=document.getElementById("noBtn");
-  var x=Math.random()*window.innerWidth*0.6;
-  var y=Math.random()*window.innerHeight*0.6;
-  btn.style.left=x+"px";
-  btn.style.top=y+"px";
+  btn.style.left=Math.random()*350+"px";
+  btn.style.top=Math.random()*200+"px";
 }
 
-/* HEART RAIN */
 function createHeart(){
   const heart=document.createElement("div");
   heart.classList.add("heart");
   heart.innerHTML="❤";
   heart.style.left=Math.random()*100+"vw";
   heart.style.animationDuration=(Math.random()*3+3)+"s";
-  heart.style.fontSize=(Math.random()*20+15)+"px";
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),5000);
 }
-setInterval(createHeart,200);
-
+setInterval(createHeart,250);
 </script>
+
 </body>
 </html>
